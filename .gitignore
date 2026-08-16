@@ -1,0 +1,48 @@
+# Ambientes virtuais e pacotes
+.env
+.venv/
+env/
+venv/
+ENV/
+env_modelos_usp/
+
+# Caches do Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Caches e metadados do R (Meta Robyn)
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDE e editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Dados e Outputs (ignora arquivos de dados/plots grandes, mas mantém a estrutura de pastas via .gitkeep)
+data/*
+!data/raw/
+data/raw/*
+!data/raw/.gitkeep
+outputs/*
+!outputs/.gitkeep
+
+# Ignorar arquivos grandes de dados brutos
+data/raw/train.csv
+data/raw/*.csv.zip
+

@@ -36,13 +36,14 @@ Thumbs.db
 
 # Dados e Outputs (ignora arquivos de dados/plots grandes, mas mantém a estrutura de pastas via .gitkeep)
 data/*
-!data/raw/
-data/raw/*
-!data/raw/.gitkeep
-outputs/*
-!outputs/.gitkeep
+!data/data_raw/
+data/data_raw/*
+!data/data_raw/.gitkeep
+!data/data_processed/
+data/data_processed/*
+!data/data_processed/.gitkeep
 
 # Ignorar arquivos grandes de dados brutos
-data/raw/train.csv
-data/raw/*.csv.zip
+data/data_raw/store_sales_train.csv
+data/data_raw/*.zip
 

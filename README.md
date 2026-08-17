@@ -28,6 +28,33 @@ A análise de mix de marketing e previsão de demanda requer a combinação de d
 
 ---
 
+## 🧠 Cobertura Metodológica e Teórica
+
+Para fundamentar as análises estatísticas e de modelagem preditiva, este repositório cobre os seguintes tópicos teóricos divididos por vertentes de Ciência de Dados:
+
+### 1. Modelagem Preditiva & Métodos Dinâmicos
+* **Séries Temporais & Modelos de Espaço de Estado:** Decomposição estrutural estocástica de sinais, identificação de sazonalidade, tendência e impacto de feriados locais (implementado via *Facebook Prophet*).
+* **Modelos Autoregressivos Clássicos (Box-Jenkins):** Suavização exponencial, diagnóstico de estacionariedade e formulação de modelos autoregressivos (`AR`, `MA`, `ARMA`, `ARIMA` e `SARIMA`) e expansões (*Método Theta*).
+* **Modelagem Temporal de Adstock:** Métodos de atenuação e carregamento temporal de mídia por meio de decaimentos geométricos e funções de suavização.
+
+### 2. Atribuição Causal & Inferência Bayesiana
+* **Paradigma Bayesiano e Teorema de Bayes:** Formulação probabilística para cálculo do efeito incremental de investimentos, mapeamento de distribuições *a priori* (priors) informativas e não-informativas, e estimação de parâmetros por cadeias de Markov (MCMC).
+* **Computação Bayesiana:** Implementações probabilísticas robustas com otimização em JAX (*Google Meridian*) e flexibilidade para simulações condicionais.
+
+### 3. Modelos de Regressão e Aprendizado Supervisionado
+* **Regressão Linear Múltipla & Diagnóstico:** Estimadores clássicos OLS e análise de qualidade de ajuste (cálculo de $R^2$, MAPE, RMSE) e resíduos.
+* **Modelos Lineares Generalizados (GLM):** Extensões para a família exponencial, com ênfase na Regressão Logística para classificação probabilística e diagnóstico frequentista/bayesiano.
+* **Seleção e Regularização:** Penalizações matriciais L2 (*Ridge*) para lidar com multicolinearidade severa em investimentos e algoritmos de seleção de variáveis.
+
+### 4. Aprendizado Não-Supervisionado & Dimensionalidade
+* **Redução de Dimensionalidade & Segmentação:** Técnicas de Análise de Componentes Principais (*PCA*) para extração de variância explicada e agrupamento de dados (*Clustering* via *K-Means*) para identificação de perfis latentes.
+
+### 5. Tratamento de Sinais & Dados Não-Estruturados
+* **Saneamento e Limpeza de Bases:** Engenharia de atributos, tratamento estatístico de nulos, imputação e outliers.
+* **Processamento de Linguagem Natural (NLP):** Captura automatizada (Web Scraping) e vetorização de texto por meio de matrizes termo-documento (Bag of Words) e TF-IDF.
+
+---
+
 ## 📁 Estrutura do Projeto
 
 Abaixo está o mapeamento dos diretórios e arquivos do repositório:
@@ -35,15 +62,21 @@ Abaixo está o mapeamento dos diretórios e arquivos do repositório:
 ```text
 modelos_USP/
 ├── data/
-│   ├── raw/                 # Bases de dados brutas baixadas de fontes externas (.gitkeep)
-│   └── processed_data.csv   # Base consolidada gerada pelo 01_data_prep.py
-├── models/                  # Scripts de modelagem de séries temporais e MMM
+│   ├── data_raw/            # Bases de dados brutas baixadas (.gitkeep)
+│   └── data_processed/      # Relatórios e matrizes geradas pelos modelos (.gitkeep)
+├── EDA/                     # Pasta com scripts de Análise Exploratória de Dados
+│   └── eda_*.py             # Scripts de visualização e perfil de cada dataset
+├── models/                  # Pasta com scripts de modelagem estatística e ML
 │   ├── 02_model_prophet.py  # Modelo de forecasting univariado (Prophet)
 │   ├── 03_model_meridian.py # Modelo MMM Bayesiano do Google (Meridian)
 │   ├── 04_model_robyn.R     # Modelo MMM da Meta (Robyn em R)
 │   ├── 05_model_custom_manual.py # MMM customizado (Ridge/OLS + Adstock/Hill manuais)
-│   └── 06_compare_results.py # Consolidação e comparação de ROI, coeficientes e métricas
-├── outputs/                 # Gráficos de diagnóstico, tabelas e relatórios locais (.gitkeep)
+│   ├── 06_compare_results.py # Consolidação e comparação de ROI e métricas
+│   ├── 07_model_classification.py # Classificação comparativa (Regressão Logística/SVM/RF)
+│   ├── 08_customer_segmentation_pca.py # Agrupamento K-Means com redução por PCA
+│   ├── 09_benchmark_arima_theta.py # Benchmark de previsões temporais (ARIMA vs Theta)
+│   ├── 10_survival_analysis.py # Modelagem de sobrevivência de clientes (Kaplan-Meier/Cox)
+│   └── 11_competitor_scraping_nlp.py # Captura via Web Scraping e matrizes BoW/TF-IDF
 ├── 00_download_data.py      # Script para baixar automaticamente bases de dados do Kaggle
 ├── 00_test_env.py           # Script para validação de imports do ambiente conda/JAX/Prophet
 ├── 01_data_prep.py          # Script de carregamento, limpeza e simulação de dados

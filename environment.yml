@@ -109,6 +109,7 @@ dependencies:
   - pthread-stubs=0.4
   - pyparsing=3.3.2
   - python=3.11.15
+  - r-base
   - python-dateutil=2.9.0.post0
   - python_abi=3.11
   - qhull=2020.2
@@ -178,6 +179,8 @@ dependencies:
       - rich==15.0.0
       - rpds-py==2026.6.3
       - scikit-learn==1.9.0
+      - lifelines==0.28.0
+      - beautifulsoup4==4.12.3
       - seaborn==0.13.2
       - statsmodels==0.14.6
       - tensorflow==2.21.0
